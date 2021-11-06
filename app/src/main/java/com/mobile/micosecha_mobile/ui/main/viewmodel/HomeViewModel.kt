@@ -1,13 +1,13 @@
-package com.mobile.micosecha_mobile.ui.gallery
+package com.mobile.micosecha_mobile.ui.main.viewmodel
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 
-class GalleryViewModel : ViewModel() {
+class HomeViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is gallery Fragment"
+        value = "This is home Fragment"
     }
     val text: LiveData<String> = _text
 }

@@ -1,4 +1,4 @@
-package com.mobile.micosecha_mobile
+package com.mobile.micosecha_mobile.ui.main.view
 
 import android.os.Bundle
 import android.view.Menu
@@ -11,6 +11,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.AppCompatActivity
+import com.mobile.micosecha_mobile.R
 import com.mobile.micosecha_mobile.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

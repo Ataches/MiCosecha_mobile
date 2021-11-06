@@ -1,4 +1,4 @@
-package com.mobile.micosecha_mobile.ui.slideshow
+package com.mobile.micosecha_mobile.ui.main.viewmodel
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData

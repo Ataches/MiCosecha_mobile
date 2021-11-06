@@ -1,4 +1,4 @@
-package com.mobile.micosecha_mobile.ui.gallery
+package com.mobile.micosecha_mobile.ui.main.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,8 +8,8 @@ import android.widget.TextView
 import android.support.v4.app.Fragment
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
-import com.mobile.micosecha_mobile.R
 import com.mobile.micosecha_mobile.databinding.FragmentGalleryBinding
+import com.mobile.micosecha_mobile.ui.main.viewmodel.GalleryViewModel
 
 class GalleryFragment : Fragment() {
 

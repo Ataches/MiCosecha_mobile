@@ -1,4 +1,4 @@
-package com.mobile.micosecha_mobile.ui.home
+package com.mobile.micosecha_mobile.ui.main.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,13 +8,13 @@ import android.widget.TextView
 import android.support.v4.app.Fragment
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
-import com.mobile.micosecha_mobile.R
-import com.mobile.micosecha_mobile.databinding.FragmentHomeBinding
+import com.mobile.micosecha_mobile.databinding.FragmentSlideshowBinding
+import com.mobile.micosecha_mobile.ui.main.viewmodel.SlideshowViewModel
 
-class HomeFragment : Fragment() {
+class SlideshowFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
-    private var _binding: FragmentHomeBinding? = null
+    private lateinit var slideshowViewModel: SlideshowViewModel
+    private var _binding: FragmentSlideshowBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,17 +25,17 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
+        slideshowViewModel =
             ViewModelProvider(
                 this,
                 ViewModelProvider.NewInstanceFactory()
-            ).get(HomeViewModel::class.java)
+            ).get(SlideshowViewModel::class.java)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentSlideshowBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
+        val textView: TextView = binding.textSlideshow
+        slideshowViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
