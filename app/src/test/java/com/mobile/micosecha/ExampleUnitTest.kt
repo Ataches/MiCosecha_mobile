@@ -1,4 +1,4 @@
-package com.mobile.micosecha_mobile
+package com.mobile.micosecha
 
 import org.junit.Test
 

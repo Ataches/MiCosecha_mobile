@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.support.v4.app.Fragment
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProvider
-import com.mobile.micosecha_mobile.databinding.FragmentHomeBinding
-import com.mobile.micosecha_mobile.ui.main.viewmodel.HomeViewModel
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import com.mobile.micosecha.databinding.FragmentHomeBinding
+import com.mobile.micosecha.ui.main.viewmodel.HomeViewModel
 
 class HomeFragment : Fragment() {
 

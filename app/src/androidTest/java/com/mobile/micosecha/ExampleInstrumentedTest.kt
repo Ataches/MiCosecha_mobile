@@ -1,4 +1,4 @@
-package com.mobile.micosecha_mobile
+package com.mobile.micosecha
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

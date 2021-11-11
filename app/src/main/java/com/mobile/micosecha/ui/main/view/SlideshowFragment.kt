@@ -1,15 +1,15 @@
-package com.mobile.micosecha_mobile.ui.main.view
+package com.mobile.micosecha.ui.main.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.support.v4.app.Fragment
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProvider
-import com.mobile.micosecha_mobile.databinding.FragmentSlideshowBinding
-import com.mobile.micosecha_mobile.ui.main.viewmodel.SlideshowViewModel
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import com.mobile.micosecha.databinding.FragmentSlideshowBinding
+import com.mobile.micosecha.ui.main.viewmodel.SlideshowViewModel
 
 class SlideshowFragment : Fragment() {
 

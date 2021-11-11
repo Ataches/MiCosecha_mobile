@@ -10,4 +10,9 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="fab_desc_messaging_button">Messaging button</string>
+    <string name="login_title">Mi Cosecha</string>
+    <string name="field_email">Correo electronico</string>
+    <string name="field_password">Contraseña</string>
+    <string name="button_login">Iniciar sesión</string>
 </resources>
