@@ -1,4 +1,4 @@
-package com.mobile.micosecha_mobile.ui.main.view
+package com.mobile.micosecha.ui.main.view
 
 import android.os.Bundle
 import android.view.LayoutInflater

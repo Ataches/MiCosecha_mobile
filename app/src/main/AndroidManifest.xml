@@ -20,7 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.mobile.micosecha.ui.main.view.HomeActivity" />
+        <activity android:name="com.mobile.micosecha.ui.main.view.HomeActivity"
+            android:theme="@style/Theme.MiCosecha_mobile.NoActionBar"/>
     </application>
 
 </manifest>

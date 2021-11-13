@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.loginViewModel = loginViewModel
         loginViewModel.user.observe(this, {
-            if (binding.txtEmailAddress.text.toString().isEmpty() || binding.txtPassword.text.toString()
+            /*if (binding.txtEmailAddress.text.toString().isEmpty() || binding.txtPassword.text.toString()
                     .isEmpty()
             ) {
                 binding.txtEmailAddress.error = "Check your E-Mail Address or password"
@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             } else if (!it.isEmailValid) {
                 binding.txtEmailAddress.error = "Enter a Valid E-mail Address"
                 binding.txtEmailAddress.requestFocus()
-            } else if (!it.isPasswordLengthGreaterThan5) {
+            } else*/ if (!it.isPasswordLengthGreaterThan5) {
                 binding.txtPassword.error = "Enter at least 6 Digit password"
                 binding.txtPassword.requestFocus()
             } else {
