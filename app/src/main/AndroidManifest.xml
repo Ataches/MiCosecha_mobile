@@ -22,6 +22,7 @@
         </activity>
         <activity android:name="com.mobile.micosecha.ui.main.view.HomeActivity"
             android:theme="@style/Theme.MiCosecha_mobile.NoActionBar"/>
+        <activity android:name="com.mobile.micosecha.ui.base.ChatActivity"
+            android:theme="@style/Theme.MiCosecha_mobile.NoActionBar"/>
     </application>
-
 </manifest>

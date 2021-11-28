@@ -42,8 +42,7 @@ class MainActivity : AppCompatActivity() {
                 binding.txtPassword.requestFocus()
             } else {
                 // TODO: send it to bd to check user
-                val intent = Intent(this, HomeActivity::class.java)
-                startActivity(intent)
+                startActivity(Intent(this, HomeActivity::class.java))
             }
         })
     }

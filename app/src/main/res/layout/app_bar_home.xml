@@ -5,28 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.main.view.HomeActivity">
-    <com.google.android.material.appbar.AppBarLayout
+
+    <ImageView
+        style="@style/DarkModeHidden"
+        android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/Theme.MiCosecha_mobile.AppBarOverlay">
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/Theme.MiCosecha_mobile.PopupOverlay" />
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_topbk" />
 
-    </com.google.android.material.appbar.AppBarLayout>
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_main"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="center" />
 
-    <include layout="@layout/content_main" />
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_marginBottom="16dp"
-        app:srcCompat="@android:drawable/ic_dialog_email"
-        android:contentDescription="@string/fab_desc_messaging_button" />
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="@dimen/fab_margin"
+        android:contentDescription="@string/fab_desc_messaging_button"
+        app:srcCompat="@android:drawable/stat_notify_chat" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="?android:attr/windowBackground"
+        android:foreground="?attr/selectableItemBackground"
+        app:menu="@menu/master_bottom_navigation"
+        app:elevation="10dp"
+        app:labelVisibilityMode="labeled"
+        app:itemIconTint="@color/bottom_navigation_color"
+        app:itemTextColor="@color/bottom_navigation_color"
+        app:itemBackground="@color/bottomNavigationBackground"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
