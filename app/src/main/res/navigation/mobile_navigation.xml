@@ -12,14 +12,14 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_bright"
         android:name="com.mobile.micosecha.ui.main.view.GalleryFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/menu_bright"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_temperature"
         android:name="com.mobile.micosecha.ui.main.view.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:label="@string/menu_temperature"
         tools:layout="@layout/fragment_slideshow" />
 </navigation>

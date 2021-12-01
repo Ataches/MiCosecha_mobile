@@ -20,6 +20,20 @@ class GalleryFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    companion object {
+        private val lineSet = linkedMapOf(
+            "JAN" to 110F,
+            "FEB" to 2F,
+            "MAR" to 5F,
+            "MAY" to 2F,
+            "APR" to 35F,
+            "JUN" to 45F,
+            "JUL" to 55F,
+            "" to 10F
+        )
+        private const val animationDuration = 1000L
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -38,6 +52,10 @@ class GalleryFragment : Fragment() {
         galleryViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+
+        binding.lineChart.animation.duration = animationDuration
+        binding.lineChart.animate(lineSet)
+
         return root
     }
 

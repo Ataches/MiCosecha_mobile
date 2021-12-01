@@ -27,22 +27,4 @@
     <color name="miniTitleColor">#6F6A6A</color>
     <color name="bottomNavigationBackground">#F7F7F7</color>
     <color name="contentStatusBar">#f8cbb3</color>
-
-    <!--gradient colors-->
-    <color name="gradientOrange">#FF416C</color>
-    <color name="gradientViolet">#8A52E9</color>
-    <color name="gradientLightYellow">#FFA72F</color>
-    <color name="gradientLightOrange">#FF641A</color>
-    <color name="gradientLightYellow2">#FFC92B</color>
-    <color name="gradientLightOrange2">#FF7765</color>
-    <color name="gradientOrange3">#F7A23C</color>
-    <color name="gradientLightBlue">#376DF6</color>
-    <color name="gradientLightGreen">#21E8AC</color>
-
-    <!--colors for nongradientversion-->
-    <color name="cardColorTeal">#09CD95</color>
-    <color name="cardColorOrange">#FF651B</color>
-    <color name="cardColorYellow">#FF991F</color>
-    <color name="cardColorViolet">#8F51E3</color>
-    <color name="cardColorRed">#F94172</color>
 </resources>

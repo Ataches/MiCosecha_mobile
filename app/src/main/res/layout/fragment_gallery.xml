@@ -21,5 +21,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <com.db.williamchart.view.LineChartView
+            android:id="@+id/lineChart"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_marginTop="20dp"
+            app:chart_axis="x"
+            app:chart_labelsColor="@color/black"
+            app:chart_labelsSize="8sp"
+            app:chart_lineColor="@color/colorPrimaryDark"
+            app:chart_lineThickness="5dp"
+            app:chart_smoothLine="false" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
