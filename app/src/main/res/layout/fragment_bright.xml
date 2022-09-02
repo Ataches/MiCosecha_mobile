@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/brightNestedScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.main.view.BrightFragment">
+
+            <TextView
+                android:id="@+id/txtViewFirstChart"
+                style="@style/viewParent.headerText"
+                android:layout_marginTop="20dp"
+                android:text="Enero -\n     Marzo"
+                app:layout_constraintBottom_toTopOf="@+id/lineChartFirst"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.db.williamchart.view.LineChartView
+                android:id="@+id/lineChartFirst"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:padding="7dp"
+                app:chart_axis="xy"
+                app:chart_labelsColor="@color/black"
+                app:chart_labelsSize="18sp"
+                app:chart_lineColor="#abc9ff"
+                app:chart_lineThickness="5dp"
+                app:chart_smoothLine="false"
+                app:layout_constraintBottom_toTopOf="@+id/txtViewSecondChart"
+                app:layout_constraintTop_toBottomOf="@+id/txtViewFirstChart" />
+
+            <TextView
+                android:id="@+id/txtViewSecondChart"
+                style="@style/viewParent.headerText"
+                android:paddingTop="20dp"
+                android:text="Abril -\n     Junio"
+                app:layout_constraintBottom_toTopOf="@+id/lineChartSecond"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lineChartFirst" />
+
+            <com.db.williamchart.view.LineChartView
+                android:id="@+id/lineChartSecond"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:padding="7dp"
+                app:chart_axis="xy"
+                app:chart_labelsColor="@color/black"
+                app:chart_labelsSize="18sp"
+                app:chart_lineColor="#e19449"
+                app:chart_lineThickness="5dp"
+                app:chart_smoothLine="false"
+                app:layout_constraintBottom_toTopOf="@+id/txtViewThirdChart"
+                app:layout_constraintTop_toBottomOf="@+id/txtViewSecondChart" />
+
+            <TextView
+                android:id="@+id/txtViewThirdChart"
+                style="@style/viewParent.headerText"
+                android:paddingTop="20dp"
+                android:text="Julio -\n     Septiembre"
+                app:layout_constraintBottom_toTopOf="@+id/lineChartThird"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lineChartSecond" />
+
+            <com.db.williamchart.view.LineChartView
+                android:id="@+id/lineChartThird"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:padding="7dp"
+                app:chart_axis="xy"
+                app:chart_labelsColor="@color/black"
+                app:chart_labelsSize="18sp"
+                app:chart_lineColor="#8cbf65"
+                app:chart_lineThickness="5dp"
+                app:chart_smoothLine="false"
+                app:layout_constraintBottom_toTopOf="@+id/txtViewFourthChart"
+                app:layout_constraintTop_toBottomOf="@+id/txtViewThirdChart" />
+
+            <TextView
+                android:id="@+id/txtViewFourthChart"
+                style="@style/viewParent.headerText"
+                android:paddingTop="20dp"
+                android:text="Octubre -\n     Diciembre"
+                app:layout_constraintBottom_toTopOf="@+id/lineChartFourth"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lineChartThird" />
+
+            <com.db.williamchart.view.LineChartView
+                android:id="@+id/lineChartFourth"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:padding="7dp"
+                app:chart_axis="xy"
+                app:chart_labelsColor="@color/black"
+                app:chart_labelsSize="18sp"
+                app:chart_lineColor="#BFA965"
+                app:chart_lineThickness="5dp"
+                app:chart_smoothLine="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtViewFourthChart" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

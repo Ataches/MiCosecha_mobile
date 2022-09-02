@@ -7,14 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mobile.micosecha.R
-import com.mobile.micosecha.data.api.Message
+import com.mobile.micosecha.data.api.ChatMessage
 import com.mobile.micosecha.util.Constants.RECEIVE_ID
 import com.mobile.micosecha.util.Constants.SEND_ID
 import kotlinx.android.synthetic.main.message_item.view.*
 
 class MessageAdapter: RecyclerView.Adapter<MessageAdapter.MessageViewHolder>() {
 
-    var messagesList = mutableListOf<Message>()
+    var messagesList = mutableListOf<ChatMessage>()
 
     inner class MessageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         init {
@@ -55,7 +55,7 @@ class MessageAdapter: RecyclerView.Adapter<MessageAdapter.MessageViewHolder>() {
         return messagesList.size
     }
 
-    fun insertMessage(message: Message){
+    fun insertMessage(message: ChatMessage){
         this.messagesList.add((message))
         notifyItemInserted(messagesList.size)
         notifyDataSetChanged()

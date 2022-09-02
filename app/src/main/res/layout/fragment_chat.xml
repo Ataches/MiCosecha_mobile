@@ -4,8 +4,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.base.ChatActivity">
-
+        tools:context=".ui.base.ChatFragment">
 
     <LinearLayout
         android:id="@+id/ll_layout_bar"
@@ -14,7 +13,8 @@
         android:layout_alignParentBottom="true"
         android:background="#E8E5E5"
         android:backgroundTint="#E8E5E5"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
 
         <EditText
             android:id="@+id/et_message"
@@ -25,20 +25,20 @@
             android:background="@drawable/round_button"
             android:backgroundTint="@android:color/white"
             android:textColorHint="#9C9C9C"
-            android:hint="Type a message..."
+            android:hint="@string/chat_placeholder"
             android:inputType="textShortMessage"
             android:padding="10dp"
             android:singleLine="true" />
 
         <Button
-            android:id="@+id/btn_send"
+            android:id="@+id/btnSend"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:background="@drawable/round_button"
-            android:backgroundTint="#26A69A"
-            android:text="Send"
+            android:backgroundTint="#925518"
+            android:text="@string/chat_button"
             android:textColor="@android:color/white" />
 
     </LinearLayout>
@@ -49,16 +49,15 @@
         android:layout_height="match_parent"
         android:layout_above="@id/ll_layout_bar"
         android:layout_below="@+id/dark_divider"
-        tools:itemCount="20"
-        tools:listitem="@layout/message_item"
-        android:paddingBottom="0dp"
         android:background="@drawable/top_round"
-        android:backgroundTint="#E8E5E5"/>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="4dp"
-        android:background="@color/purple_700"
-        android:id="@+id/dark_divider"/>
+        android:paddingBottom="0dp"
+        tools:itemCount="20"
+        tools:listitem="@layout/message_item"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@color/purple_700"
+            android:id="@+id/dark_divider"/>
 
     </RelativeLayout>
 </layout>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mobile.micosecha">
-
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,8 +21,6 @@
             </intent-filter>
         </activity>
         <activity android:name="com.mobile.micosecha.ui.main.view.HomeActivity"
-            android:theme="@style/Theme.MiCosecha_mobile.NoActionBar"/>
-        <activity android:name="com.mobile.micosecha.ui.base.ChatActivity"
             android:theme="@style/Theme.MiCosecha_mobile.NoActionBar"/>
     </application>
 </manifest>

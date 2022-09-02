@@ -8,13 +8,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_margin="4dp"
+        android:layout_alignParentRight="true"
+        android:layout_margin="8dp"
         android:background="@drawable/send_round_box"
-        android:padding="8dp"
+        android:padding="16dp"
         android:text="This is a sample message that will appear"
         android:textColor="@color/black"
-        android:textSize="14sp"
-        android:layout_alignParentRight="true" />
+        android:textSize="14sp" />
 
     <TextView
         android:visibility="visible"
@@ -22,9 +22,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_margin="4dp"
+        android:layout_margin="8dp"
         android:background="@drawable/receive_round_box"
-        android:padding="8dp"
+        android:padding="16dp"
         android:text="This is a sample message that will appear"
         android:textColor="@color/black"
         android:textSize="14sp"

@@ -14,8 +14,11 @@
     <string name="menu_humidity">Humedad relativa</string>
     <string name="menu_chat">Chat</string>
     <string name="fab_desc_messaging_button">Messaging button</string>
-    <string name="login_title">Mi Cosecha</string>
+    <string name="aplication_title">Mi\n   Cosecha</string>
     <string name="field_email">Correo electronico</string>
     <string name="field_password">Contraseña</string>
-    <string name="button_login">Iniciar sesión</string>
+    <string name="button_login">Iniciar</string>
+    <string name="button_register">Registrarme</string>
+    <string name="chat_button">Enviar</string>
+    <string name="chat_placeholder">Ingresar mensaje</string>
 </resources>

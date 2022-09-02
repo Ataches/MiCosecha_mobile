@@ -9,17 +9,35 @@
         android:id="@+id/nav_home"
         android:name="com.mobile.micosecha.ui.main.view.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_bright"
+            app:destination="@id/nav_bright" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_temperature"
+            app:destination="@id/nav_temperature" />
+        <action
+            android:id="@+id/action_nav_home_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_bright"
-        android:name="com.mobile.micosecha.ui.main.view.GalleryFragment"
+        android:name="com.mobile.micosecha.ui.main.view.BrightFragment"
         android:label="@string/menu_bright"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_bright" />
 
     <fragment
         android:id="@+id/nav_temperature"
         android:name="com.mobile.micosecha.ui.main.view.SlideshowFragment"
         android:label="@string/menu_temperature"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.mobile.micosecha.ui.base.ChatFragment"
+        android:label="ChatFragment" >
+        <action
+            android:id="@+id/action_chatFragment_to_nav_bright"
+            app:destination="@id/nav_bright" />
+    </fragment>
 </navigation>

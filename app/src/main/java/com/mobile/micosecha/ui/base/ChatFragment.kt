@@ -6,44 +6,55 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mobile.micosecha.data.api.Message
-import com.mobile.micosecha.databinding.ActivityChatBinding
 import com.mobile.micosecha.ui.adapter.MessageAdapter
 import com.mobile.micosecha.util.BotResponse
-import com.mobile.micosecha.util.Constants.OPEN_GOOGLE
 import com.mobile.micosecha.util.Constants.OPEN_INSTA
 import com.mobile.micosecha.util.Constants.OPEN_SEARCH
+import kotlinx.coroutines.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import com.mobile.micosecha.R
+import com.mobile.micosecha.data.api.ChatMessage
+import com.mobile.micosecha.data.api.ChatMessageResponse
+import com.mobile.micosecha.data.api.asMessage
+import com.mobile.micosecha.databinding.FragmentChatBinding
+import com.mobile.micosecha.util.Constants.OPEN_GRAPH
 import com.mobile.micosecha.util.Constants.RECEIVE_ID
 import com.mobile.micosecha.util.Constants.SEND_ID
-import com.mobile.micosecha.util.Time
-import kotlinx.coroutines.*
-import java.util.*
 
-class ChatActivity : AppCompatActivity() {
 
-    var messagesList = mutableListOf<Message>()
+class ChatFragment : Fragment() {
+
+    var messagesList = mutableListOf<ChatMessage>()
 
     private lateinit var adapter: MessageAdapter
-    private lateinit var binding: ActivityChatBinding
-    private val botList = listOf("Grace", "Santa", "QuickBot")
+    private lateinit var binding: FragmentChatBinding
+    private val botList = listOf("Grace", "Lenny", "QuickBot")
 
     @RequiresApi(Build.VERSION_CODES.O)
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityChatBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        supportActionBar?.hide()
+        binding = FragmentChatBinding.inflate(inflater, container, false)
 
         recyclerView()
 
         clickEvents()
 
         val random = (0..2).random()
-        customBotMessage("Hello! \nToday you're talking with ${botList[random]}, \nHow may I help?")
+        customBotMessage("Bienvenido!")
+        customBotMessage("Te escribe ${botList[random]},")
+        customBotMessage("En que te puedo ayudar?")
+
+        return binding.root
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -51,7 +62,7 @@ class ChatActivity : AppCompatActivity() {
 
         //Send a message
         binding.btnSend.setOnClickListener {
-            sendMessage()
+            sendMessage(it)
         }
 
         //Scroll back to correct position when user clicks on text view
@@ -69,7 +80,7 @@ class ChatActivity : AppCompatActivity() {
     private fun recyclerView() {
         adapter = MessageAdapter()
         binding.rvMessages.adapter = adapter
-        binding.rvMessages.layoutManager = LinearLayoutManager(applicationContext)
+        binding.rvMessages.layoutManager = LinearLayoutManager(context)
 
     }
 
@@ -85,55 +96,51 @@ class ChatActivity : AppCompatActivity() {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun sendMessage() {
+    private fun sendMessage(view: View) {
         val message = binding.etMessage.text.toString()
-        val timeStamp = Time.timeStamp()
 
         if (message.isNotEmpty()) {
+            val chatMessage = ChatMessage(message, SEND_ID)
             //Adds it to our local list
-            messagesList.add(Message(message, SEND_ID, timeStamp))
+            messagesList.add(chatMessage)
             binding.etMessage.setText("")
 
-            adapter.insertMessage(Message(message, SEND_ID, timeStamp))
+            adapter.insertMessage(chatMessage)
             binding.rvMessages.scrollToPosition(adapter.itemCount - 1)
 
-            botResponse(message)
+            botResponse(view, message)
         }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun botResponse(message: String) {
-        val timeStamp = Time.timeStamp()
+    fun botResponse(view: View, message: String) {
 
         GlobalScope.launch {
-            //Fake response delay
-            delay(1000)
 
             withContext(Dispatchers.Main) {
                 //Gets the response
-                val response = BotResponse.basicResponses(message)
+                val botResponse: ChatMessageResponse = BotResponse().basicResponses(message)
+                val response: ChatMessage = botResponse.asMessage()
 
                 //Adds it to our local list
-                messagesList.add(Message(response, RECEIVE_ID, timeStamp))
+                messagesList.add(response)
 
                 //Inserts our message into the adapter
-                adapter.insertMessage(Message(response, RECEIVE_ID, timeStamp))
+                adapter.insertMessage(response)
 
                 //Scrolls us to the position of the latest message
                 binding.rvMessages.scrollToPosition(adapter.itemCount - 1)
 
                 //Starts Google
-                when (response) {
+                when (response.message) {
                     OPEN_SEARCH -> {
                         val site = Intent(Intent.ACTION_VIEW)
-                        val searchTerm: String = message.substringAfterLast("search")
+                        val searchTerm: String = message.substringAfterLast("google")
                         site.data = Uri.parse("https://www.google.com/search?&q=$searchTerm")
                         startActivity(site)
                     }
-                    OPEN_GOOGLE -> {
-                        val site = Intent(Intent.ACTION_VIEW)
-                        site.data = Uri.parse("https://www.google.com/")
-                        startActivity(site)
+                    OPEN_GRAPH -> {
+                        view.findNavController().navigate(R.id.action_chatFragment_to_nav_bright)
                     }
                     OPEN_INSTA -> {
                         val site = Intent(Intent.ACTION_VIEW)
@@ -150,9 +157,9 @@ class ChatActivity : AppCompatActivity() {
         GlobalScope.launch {
             delay(1000)
             withContext(Dispatchers.Main) {
-                val timeStamp = Time.timeStamp()
-                messagesList.add(Message(message, RECEIVE_ID, timeStamp))
-                adapter.insertMessage(Message(message, RECEIVE_ID, timeStamp))
+                val chatMessage = ChatMessage(message, RECEIVE_ID)
+                messagesList.add(chatMessage)
+                adapter.insertMessage(chatMessage)
 
                 binding.rvMessages.scrollToPosition(adapter.itemCount - 1)
             }

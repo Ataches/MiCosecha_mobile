@@ -6,10 +6,21 @@
     <data/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/homeFragment"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/app_bar_home"
         style="@style/parent.contentLayout"
         android:background="#00000000">
+
+        <ImageView
+            style="@style/DarkModeHidden"
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_topbk"
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -185,8 +196,20 @@
 
                     </LinearLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
             </LinearLayout>
+
         </androidx.core.widget.NestedScrollView>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="8dp"
+            android:contentDescription="@string/fab_desc_messaging_button"
+            app:srcCompat="@android:drawable/stat_notify_chat" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

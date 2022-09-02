@@ -1,21 +1,16 @@
 package com.mobile.micosecha.ui.main.view
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
-import com.google.android.material.snackbar.Snackbar
 import com.mobile.micosecha.R
 import com.mobile.micosecha.databinding.ActivityHomeBinding
-import com.mobile.micosecha.ui.base.ChatActivity
 
 class HomeActivity : AppCompatActivity() {
 
@@ -28,11 +23,6 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.appBarHome.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Iniciando chat", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-            startActivity(Intent(this, ChatActivity::class.java))
-        }
         val navView: NavigationView = binding.navView
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment
         val navController = navHostFragment.navController
