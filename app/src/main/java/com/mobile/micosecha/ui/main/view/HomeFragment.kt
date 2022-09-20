@@ -6,12 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.mobile.micosecha.R
 import com.mobile.micosecha.databinding.FragmentHomeBinding
 import com.mobile.micosecha.ui.main.viewmodel.HomeViewModel
+import kotlinx.android.synthetic.main.content_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
+
 
 class HomeFragment : Fragment() {
 
@@ -40,6 +44,9 @@ class HomeFragment : Fragment() {
             Snackbar.make(view, "Iniciando chat", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
             view.findNavController().navigate(R.id.action_nav_home_to_chatFragment)
+        }
+        binding.onlyRiceButton.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_nav_home_to_nav_bright)
         }
         return root
     }

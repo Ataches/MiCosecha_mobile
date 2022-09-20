@@ -7,7 +7,7 @@ import android.net.Uri
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mobile.micosecha.ui.adapter.MessageAdapter
+import com.mobile.micosecha.ui.main.view.adapter.MessageAdapter
 import com.mobile.micosecha.util.BotResponse
 import com.mobile.micosecha.util.Constants.OPEN_INSTA
 import com.mobile.micosecha.util.Constants.OPEN_SEARCH
@@ -68,7 +68,6 @@ class ChatFragment : Fragment() {
         //Scroll back to correct position when user clicks on text view
         binding.etMessage.setOnClickListener {
             GlobalScope.launch {
-                delay(100)
 
                 withContext(Dispatchers.Main) {
                     binding.rvMessages.scrollToPosition(adapter.itemCount - 1)
@@ -88,7 +87,6 @@ class ChatFragment : Fragment() {
         super.onStart()
         //In case there are messages, scroll to bottom when re-opening app
         GlobalScope.launch {
-            delay(1000)
             withContext(Dispatchers.Main) {
                 binding.rvMessages.scrollToPosition(adapter.itemCount - 1)
             }

@@ -5,7 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.mobile.micosecha.data.api.GraphData
+import com.mobile.micosecha.data.api.asMessage
 import com.mobile.micosecha.databinding.FragmentBrightBinding
+import com.mobile.micosecha.util.GraphResponse
+import kotlinx.coroutines.*
+
 
 class BrightFragment : Fragment() {
 
@@ -39,6 +44,7 @@ class BrightFragment : Fragment() {
         private const val animationDuration = 1000L
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -52,10 +58,16 @@ class BrightFragment : Fragment() {
         binding.lineChartSecond.animation.duration = animationDuration
         binding.lineChartThird.animation.duration = animationDuration
 
-        binding.lineChartFirst.animate(lineSetFirst)
-        binding.lineChartSecond.animate(lineSetSecond)
-        binding.lineChartThird.animate(lineSetThird)
-        binding.lineChartFourth.animate(lineSetFourth)
+        GlobalScope.launch {
+
+            withContext(Dispatchers.Main) {
+                val graphResponse: GraphData = GraphResponse().graphResponse("2016").asMessage()
+                binding.lineChartFirst.animate(graphResponse.lineSetFirst)
+                binding.lineChartSecond.animate(graphResponse.lineSetSecond)
+                binding.lineChartThird.animate(graphResponse.lineSetThird)
+                binding.lineChartFourth.animate(graphResponse.lineSetFourth)
+            }
+        }
 
         return root
     }

@@ -1,4 +1,4 @@
-package com.mobile.micosecha.ui.adapter
+package com.mobile.micosecha.ui.main.view.adapter
 
 
 import android.annotation.SuppressLint
