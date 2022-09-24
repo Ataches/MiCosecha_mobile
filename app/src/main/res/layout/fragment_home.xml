@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
-            name="HomeViewModel"
+            name="variety"
+            type="com.mobile.micosecha.util.VarietyENUM" />
+        <variable
+            name="homeViewModel"
             type="com.mobile.micosecha.ui.main.viewmodel.HomeViewModel" />
     </data>
 
@@ -68,162 +70,59 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
+                        <Button
+                            android:id="@+id/F733Button"
+                            style="@style/viewParent.headerText.HomeCardTitle"
+                            android:background="@drawable/home_gradient_maths"
+                            android:padding="10dp"
+                            android:onClick="@{(view) -> homeViewModel.onClick(view, variety.F733.variety)}"
+                            android:text="F733"
+                            android:textAllCaps="false"
                             app:cardCornerRadius="15dp"
-                            app:cardPreventCornerOverlap="true">
-
-                            <RelativeLayout
-                                android:id="@+id/F733RelativeLayout"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@drawable/home_gradient_maths"
-                                android:minHeight="100dp"
-                                android:padding="10dp">
-
-                                <ImageView
-                                    style="@style/homeCardImage"
-                                    android:layout_alignParentTop="true"
-                                    android:layout_marginTop="45dp"
-                                    android:maxHeight="55dp"
-                                    android:src="@drawable/ic_sun" />
-
-                                <TextView
-                                    android:id="@+id/F733TextView"
-                                    style="@style/viewParent.headerText.HomeCardTitle"
-                                    android:text="F733"
-                                    android:textColor="@color/black" />
-
-                            </RelativeLayout>
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:textColor="@color/black" />
+                        <Button
+                            android:id="@+id/F60Button"
+                            style="@style/viewParent.headerText.HomeCardTitle"
+                            android:background="@drawable/home_gradient_biology"
+                            android:padding="10dp"
+                            android:onClick="@{(view) -> homeViewModel.onClick(view, variety.F60.variety)}"
                             android:layout_marginTop="10dp"
-                            app:cardCornerRadius="15dp"
-                            app:cardPreventCornerOverlap="true">
-
-                            <RelativeLayout
-                                android:id="@+id/F60RelativeLayout"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@drawable/home_gradient_biology"
-                                android:minHeight="100dp"
-                                android:padding="10dp">
-
-                                <ImageView
-                                    style="@style/homeCardImage"
-                                    android:layout_alignParentTop="true"
-                                    android:layout_marginTop="45dp"
-                                    android:maxHeight="55dp"
-                                    android:src="@drawable/ic_fire" />
-
-                                <TextView
-                                    android:id="@+id/F60TextView"
-                                    style="@style/viewParent.headerText.HomeCardTitle"
-                                    android:text="F60" />
-
-
-                            </RelativeLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:text="F60"
+                            android:textAllCaps="false"
+                            app:cardCornerRadius="15dp" />
+                        <Button
+                            android:id="@+id/F473Button"
+                            style="@style/viewParent.headerText.HomeCardTitle"
+                            android:background="@drawable/home_gradient_maths"
+                            android:padding="10dp"
+                            android:onClick="@{(view) -> homeViewModel.onClick(view, variety.F473.variety)}"
                             android:layout_marginTop="10dp"
+                            android:text="F473"
+                            android:textAllCaps="false"
                             app:cardCornerRadius="15dp"
-                            app:cardPreventCornerOverlap="true">
+                            android:textColor="@color/black"  />
 
-                            <RelativeLayout
-                                android:id="@+id/F473RelativeLayout"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@drawable/home_gradient_maths"
-                                android:minHeight="100dp"
-                                android:padding="10dp">
-
-                                <ImageView
-                                    style="@style/homeCardImage"
-                                    android:layout_alignParentTop="true"
-                                    android:layout_marginTop="45dp"
-                                    android:maxHeight="55dp"
-                                    android:src="@drawable/ic_sun" />
-
-                                <TextView
-                                    android:id="@+id/F473TextView"
-                                    style="@style/viewParent.headerText.HomeCardTitle"
-                                    android:text="F473"
-                                    android:textColor="@color/black" />
-
-                            </RelativeLayout>
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                        <Button
+                            android:id="@+id/F200Button"
+                            style="@style/viewParent.headerText.HomeCardTitle"
+                            android:background="@drawable/home_gradient_biology"
+                            android:padding="10dp"
+                            android:onClick="@{(view) -> homeViewModel.onClick(view, variety.F2000.variety)}"
                             android:layout_marginTop="10dp"
-                            app:cardCornerRadius="15dp"
-                            app:cardPreventCornerOverlap="true">
-
-                            <RelativeLayout
-                                android:id="@+id/F200RelativeLayout"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@drawable/home_gradient_biology"
-                                android:minHeight="100dp"
-                                android:padding="10dp">
-
-                                <ImageView
-                                    style="@style/homeCardImage"
-                                    android:layout_alignParentTop="true"
-                                    android:layout_marginTop="45dp"
-                                    android:maxHeight="55dp"
-                                    android:src="@drawable/ic_fire" />
-
-                                <TextView
-                                    android:id="@+id/F200TextView"
-                                    style="@style/viewParent.headerText.HomeCardTitle"
-                                    android:text="F200" />
-
-
-                            </RelativeLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:text="F200"
+                            android:textAllCaps="false"
+                            app:cardCornerRadius="15dp" />
+                        <Button
+                            android:id="@+id/colombiaButton"
+                            style="@style/viewParent.headerText.HomeCardTitle"
+                            android:background="@drawable/home_gradient_maths"
+                            android:padding="10dp"
+                            android:onClick="@{(view) -> homeViewModel.onClick(view, variety.COLOMBIA_XXI.variety)}"
                             android:layout_marginTop="10dp"
+                            android:text="Colombia XXI"
+                            android:textAllCaps="false"
                             app:cardCornerRadius="15dp"
-                            app:cardPreventCornerOverlap="true">
-
-                            <RelativeLayout
-                                android:id="@+id/colombiaXXIRelativeLayout"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@drawable/home_gradient_maths"
-                                android:minHeight="100dp"
-                                android:padding="10dp">
-
-                                <ImageView
-                                    style="@style/homeCardImage"
-                                    android:layout_alignParentTop="true"
-                                    android:layout_marginTop="45dp"
-                                    android:maxHeight="55dp"
-                                    android:src="@drawable/ic_sun" />
-
-                                <TextView
-                                    android:id="@+id/colombiaXXITextView"
-                                    style="@style/viewParent.headerText.HomeCardTitle"
-                                    android:text="Colombia XXI"
-                                    android:textColor="@color/black" />
-
-                            </RelativeLayout>
-                        </androidx.cardview.widget.CardView>
+                            android:textColor="@color/black"  />
 
                     </LinearLayout>
 
@@ -242,13 +141,9 @@
                         <Button
                             android:id="@+id/lagunasButton"
                             style="@style/viewParent.headerText.HomeCardTitle"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="10dp"
                             android:background="@drawable/home_gradient_chemestry"
-                            android:clickable="true"
-                            android:minHeight="50dp"
                             android:padding="10dp"
+                            android:onClick="@{(view) -> homeViewModel.onClick(view, variety.LAGUNAS.variety)}"
                             android:text="Lagunas"
                             android:textAllCaps="false"
                             app:cardCornerRadius="15dp" />
@@ -256,13 +151,10 @@
                         <Button
                             android:id="@+id/F50Button"
                             style="@style/viewParent.headerText.HomeCardTitle"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="10dp"
                             android:background="@drawable/home_gradient_physics"
-                            android:clickable="true"
-                            android:minHeight="50dp"
+                            android:layout_marginTop="10dp"
                             android:padding="10dp"
+                            android:onClick="@{(view) -> homeViewModel.onClick(view, variety.F50.variety)}"
                             android:text="F50"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
@@ -271,13 +163,10 @@
                         <Button
                             android:id="@+id/cimarronButton"
                             style="@style/viewParent.headerText.HomeCardTitle"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
                             android:layout_marginTop="10dp"
                             android:background="@drawable/home_gradient_chemestry"
-                            android:clickable="true"
-                            android:minHeight="50dp"
                             android:padding="10dp"
+                            android:onClick="@{(view) -> homeViewModel.onClick(view, variety.CIMARRON.variety)}"
                             android:text="Cimarron Barinas"
                             android:textAllCaps="false"
                             app:cardCornerRadius="15dp" />
@@ -285,18 +174,14 @@
                         <Button
                             android:id="@+id/onlyRiceButton"
                             style="@style/viewParent.headerText.HomeCardTitle"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
                             android:layout_marginTop="10dp"
                             android:background="@drawable/home_gradient_physics"
-                            android:clickable="true"
-                            android:minHeight="50dp"
                             android:padding="10dp"
+                            android:onClick="@{(view) -> homeViewModel.onClick(view, variety.RICE_228.variety)}"
                             android:text="Only rice 228"
                             android:textAllCaps="false"
                             android:textColor="@color/black"
                             app:cardCornerRadius="15dp" />
-
 
                     </LinearLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>

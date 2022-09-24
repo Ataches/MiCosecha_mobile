@@ -1,7 +1,8 @@
 package com.mobile.micosecha.data.repository.remote
 
-import com.mobile.micosecha.data.api.ChatMessageResponse
-import com.mobile.micosecha.data.api.GraphDataResponse
+import com.mobile.micosecha.data.api.ChatMessageSerializable
+import com.mobile.micosecha.data.api.VariablesDataResponse
+import com.mobile.micosecha.data.api.VariablesDataSerializable
 import com.mobile.micosecha.util.Constants
 import io.ktor.client.*
 import io.ktor.client.call.*
@@ -22,17 +23,17 @@ class KtorWebService {
         }
     }
 
-    suspend fun getBotResponse(chatMessage: String): ChatMessageResponse {
+    suspend fun getBotResponse(chatMessage: String): ChatMessageSerializable {
         return ktorHttpClient.post("http://192.168.56.1:5000/") {
             contentType(ContentType.Application.Json)
-            setBody(ChatMessageResponse(message = chatMessage, id = Constants.SEND_ID))
+            setBody(ChatMessageSerializable(message = chatMessage, id = Constants.SEND_ID))
         }.body()
     }
 
-    suspend fun getGraphResponse(year: String): GraphDataResponse {
+    suspend fun getGraphResponse(variety: String): VariablesDataResponse {
         return ktorHttpClient.post("http://192.168.56.1:5001/") {
             contentType(ContentType.Application.Json)
-            setBody(year)
+            setBody(VariablesDataSerializable(variety))
         }.body()
     }
 }

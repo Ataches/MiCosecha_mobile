@@ -5,6 +5,7 @@ import kotlinx.serialization.*
 @Serializable
 data class VariablesDataResponse(
 
+    var lineSet: LinkedHashMap<String, Float>,
     var min_temp: Float,
     var max_temp: Float,
     var rhum: Float,
@@ -14,13 +15,14 @@ data class VariablesDataResponse(
 
 )
 
-fun VariablesData.asMessage(): VariablesData {
+fun VariablesDataResponse.asMessage(): VariablesData {
     return VariablesData(
-        min_temp= min_temp,
-        max_temp= max_temp,
-        rhum= rhum,
-        sbright= sbright,
-        prec= prec,
-        prod= prod
+        lineSet = lineSet,
+        min_temp = min_temp,
+        max_temp = max_temp,
+        rhum = rhum,
+        sbright = sbright,
+        prec = prec,
+        prod = prod
     )
 }

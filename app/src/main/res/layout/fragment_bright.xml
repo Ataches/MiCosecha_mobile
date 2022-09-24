@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -17,13 +16,13 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".ui.main.view.BrightFragment">
+            tools:context=".ui.main.view.VarietyResumeFragment">
 
             <TextView
-                android:id="@+id/txtViewFirstChart"
+                android:id="@+id/seedTextView"
                 style="@style/viewParent.headerText"
                 android:layout_marginTop="20dp"
-                android:text="Enero -\n     Marzo"
+                android:text="Semilla"
                 app:layout_constraintBottom_toTopOf="@+id/lineChartFirst"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -39,77 +38,62 @@
                 app:chart_lineColor="#abc9ff"
                 app:chart_lineThickness="5dp"
                 app:chart_smoothLine="false"
-                app:layout_constraintBottom_toTopOf="@+id/txtViewSecondChart"
-                app:layout_constraintTop_toBottomOf="@+id/txtViewFirstChart" />
+                app:layout_constraintBottom_toTopOf="@+id/minimalTemperatureTextView"
+                app:layout_constraintTop_toBottomOf="@+id/seedTextView" />
 
             <TextView
-                android:id="@+id/txtViewSecondChart"
+                android:id="@+id/minimalTemperatureTextView"
                 style="@style/viewParent.headerText"
-                android:paddingTop="20dp"
-                android:text="Abril -\n     Junio"
-                app:layout_constraintBottom_toTopOf="@+id/lineChartSecond"
+                android:layout_marginTop="20dp"
+                android:text="Temperatura mínima: 22.97 °c"
+                app:layout_constraintBottom_toTopOf="@+id/maximumTemperatureTextView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/lineChartFirst" />
 
-            <com.db.williamchart.view.LineChartView
-                android:id="@+id/lineChartSecond"
-                android:layout_width="match_parent"
-                android:layout_height="140dp"
-                android:padding="7dp"
-                app:chart_axis="xy"
-                app:chart_labelsColor="@color/black"
-                app:chart_labelsSize="18sp"
-                app:chart_lineColor="#e19449"
-                app:chart_lineThickness="5dp"
-                app:chart_smoothLine="false"
-                app:layout_constraintBottom_toTopOf="@+id/txtViewThirdChart"
-                app:layout_constraintTop_toBottomOf="@+id/txtViewSecondChart" />
+            <TextView
+                android:id="@+id/maximumTemperatureTextView"
+                style="@style/viewParent.headerText"
+                android:layout_marginTop="20dp"
+                android:text="Temperatura máxima: 33.14 °c"
+                app:layout_constraintBottom_toTopOf="@+id/relativeHumidityTextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/minimalTemperatureTextView" />
 
             <TextView
-                android:id="@+id/txtViewThirdChart"
+                android:id="@+id/relativeHumidityTextView"
                 style="@style/viewParent.headerText"
-                android:paddingTop="20dp"
-                android:text="Julio -\n     Septiembre"
-                app:layout_constraintBottom_toTopOf="@+id/lineChartThird"
+                android:layout_marginTop="20dp"
+                android:text="Humedad relativa: 75.15 %"
+                app:layout_constraintBottom_toTopOf="@+id/sunBrightTextView"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lineChartSecond" />
-
-            <com.db.williamchart.view.LineChartView
-                android:id="@+id/lineChartThird"
-                android:layout_width="match_parent"
-                android:layout_height="140dp"
-                android:padding="7dp"
-                app:chart_axis="xy"
-                app:chart_labelsColor="@color/black"
-                app:chart_labelsSize="18sp"
-                app:chart_lineColor="#8cbf65"
-                app:chart_lineThickness="5dp"
-                app:chart_smoothLine="false"
-                app:layout_constraintBottom_toTopOf="@+id/txtViewFourthChart"
-                app:layout_constraintTop_toBottomOf="@+id/txtViewThirdChart" />
+                app:layout_constraintTop_toBottomOf="@+id/maximumTemperatureTextView" />
 
             <TextView
-                android:id="@+id/txtViewFourthChart"
+                android:id="@+id/sunBrightTextView"
                 style="@style/viewParent.headerText"
-                android:paddingTop="20dp"
-                android:text="Octubre -\n     Diciembre"
-                app:layout_constraintBottom_toTopOf="@+id/lineChartFourth"
+                android:layout_marginTop="20dp"
+                android:text="Brillo del sol: 5.27 w.m-2"
+                app:layout_constraintBottom_toTopOf="@+id/precipitationTextView"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lineChartThird" />
+                app:layout_constraintTop_toBottomOf="@+id/relativeHumidityTextView" />
 
-            <com.db.williamchart.view.LineChartView
-                android:id="@+id/lineChartFourth"
-                android:layout_width="match_parent"
-                android:layout_height="140dp"
-                android:padding="7dp"
-                app:chart_axis="xy"
-                app:chart_labelsColor="@color/black"
-                app:chart_labelsSize="18sp"
-                app:chart_lineColor="#BFA965"
-                app:chart_lineThickness="5dp"
-                app:chart_smoothLine="false"
+            <TextView
+                android:id="@+id/precipitationTextView"
+                style="@style/viewParent.headerText"
+                android:layout_marginTop="20dp"
+                android:text="Precipitación: 4.38 mm"
+                app:layout_constraintBottom_toTopOf="@+id/productionTextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sunBrightTextView" />
+
+            <TextView
+                android:id="@+id/productionTextView"
+                style="@style/viewParent.headerText"
+                android:layout_marginTop="20dp"
+                android:text="Producción: 6089 Ha "
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtViewFourthChart" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/precipitationTextView" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

@@ -14,28 +14,21 @@
             android:id="@+id/action_nav_home_to_nav_bright"
             app:destination="@id/nav_bright" />
         <action
-            android:id="@+id/action_nav_home_to_nav_temperature"
-            app:destination="@id/nav_temperature" />
-        <action
             android:id="@+id/action_nav_home_to_chatFragment"
-            app:destination="@id/chatFragment" />
+            app:destination="@id/nav_chat" />
     </fragment>
 
     <fragment
         android:id="@+id/nav_bright"
-        android:name="com.mobile.micosecha.ui.main.view.BrightFragment"
+        android:name="com.mobile.micosecha.ui.main.view.VarietyResumeFragment"
         android:label="@string/menu_bright"
         tools:layout="@layout/fragment_bright" />
 
     <fragment
-        android:id="@+id/nav_temperature"
-        android:name="com.mobile.micosecha.ui.main.view.SlideshowFragment"
-        android:label="@string/menu_temperature"
-        tools:layout="@layout/fragment_slideshow" />
-    <fragment
-        android:id="@+id/chatFragment"
-        android:name="com.mobile.micosecha.ui.base.ChatFragment"
-        android:label="ChatFragment" >
+        android:id="@+id/nav_chat"
+        android:name="com.mobile.micosecha.ui.main.view.ChatFragment"
+        android:label="@string/menu_chat"
+        tools:layout="@layout/fragment_chat">
         <action
             android:id="@+id/action_chatFragment_to_nav_bright"
             app:destination="@id/nav_bright" />

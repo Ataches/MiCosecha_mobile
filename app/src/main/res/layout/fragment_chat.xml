@@ -4,7 +4,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.base.ChatFragment">
+        tools:context=".ui.main.view.ChatFragment">
 
     <LinearLayout
         android:id="@+id/ll_layout_bar"

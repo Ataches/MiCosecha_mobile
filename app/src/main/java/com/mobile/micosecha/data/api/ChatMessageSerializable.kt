@@ -3,14 +3,14 @@ package com.mobile.micosecha.data.api
 import kotlinx.serialization.*
 
 @Serializable
-data class ChatMessageResponse(
+data class ChatMessageSerializable(
 
     var message: String,
     val id: String
 
 )
 
-fun ChatMessageResponse.asMessage(): ChatMessage {
+fun ChatMessageSerializable.asMessage(): ChatMessage {
     return ChatMessage(
         id = id,
         message = message

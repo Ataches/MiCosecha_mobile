@@ -17,6 +17,7 @@
         android:contentDescription="@string/nav_header_desc"
         android:layout_gravity="start"
         android:src="@drawable/navbar_farmer"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,10 +26,4 @@
         android:textColor="@color/black"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:textColor="@color/black" />
 </LinearLayout>

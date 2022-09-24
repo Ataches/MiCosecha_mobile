@@ -1,6 +1,6 @@
 package com.mobile.micosecha.util
 
-import com.mobile.micosecha.data.api.GraphDataResponse
+import com.mobile.micosecha.data.api.VariablesDataResponse
 import com.mobile.micosecha.data.repository.MainRepository
 import com.mobile.micosecha.data.repository.remote.KtorWebService
 import kotlinx.coroutines.Dispatchers
@@ -12,8 +12,8 @@ class GraphResponse {
         KtorWebService()
     )
 
-    suspend fun graphResponse(year: String): GraphDataResponse = withContext(Dispatchers.IO) {
-        return@withContext repository.getGraphResponse(year)
+    suspend fun graphResponse(variety: String): VariablesDataResponse = withContext(Dispatchers.IO) {
+        return@withContext repository.getGraphResponse(variety)
     }
 
 }

@@ -1,4 +1,4 @@
-package com.mobile.micosecha.ui.base
+package com.mobile.micosecha.ui.main.view
 
 import android.os.Bundle
 
@@ -19,7 +19,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.mobile.micosecha.R
 import com.mobile.micosecha.data.api.ChatMessage
-import com.mobile.micosecha.data.api.ChatMessageResponse
+import com.mobile.micosecha.data.api.ChatMessageSerializable
 import com.mobile.micosecha.data.api.asMessage
 import com.mobile.micosecha.databinding.FragmentChatBinding
 import com.mobile.micosecha.util.Constants.OPEN_GRAPH
@@ -117,7 +117,7 @@ class ChatFragment : Fragment() {
 
             withContext(Dispatchers.Main) {
                 //Gets the response
-                val botResponse: ChatMessageResponse = BotResponse().basicResponses(message)
+                val botResponse: ChatMessageSerializable = BotResponse().basicResponses(message)
                 val response: ChatMessage = botResponse.asMessage()
 
                 //Adds it to our local list

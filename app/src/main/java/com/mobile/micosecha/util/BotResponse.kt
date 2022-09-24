@@ -1,6 +1,6 @@
 package com.mobile.micosecha.util
 
-import com.mobile.micosecha.data.api.ChatMessageResponse
+import com.mobile.micosecha.data.api.ChatMessageSerializable
 import com.mobile.micosecha.data.repository.MainRepository
 import com.mobile.micosecha.data.repository.remote.KtorWebService
 import kotlinx.coroutines.Dispatchers
@@ -12,7 +12,7 @@ class BotResponse {
         KtorWebService()
     )
 
-    suspend fun basicResponses(chatMessage: String): ChatMessageResponse = withContext(Dispatchers.IO) {
+    suspend fun basicResponses(chatMessage: String): ChatMessageSerializable = withContext(Dispatchers.IO) {
         return@withContext repository.getBotResponse(filterString(chatMessage))
     }
 
