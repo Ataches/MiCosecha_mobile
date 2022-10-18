@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
+import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobile.micosecha.ui.main.view.adapter.MessageAdapter
@@ -15,6 +16,7 @@ import kotlinx.coroutines.*
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.mobile.micosecha.R
@@ -25,6 +27,7 @@ import com.mobile.micosecha.databinding.FragmentChatBinding
 import com.mobile.micosecha.util.Constants.OPEN_GRAPH
 import com.mobile.micosecha.util.Constants.RECEIVE_ID
 import com.mobile.micosecha.util.Constants.SEND_ID
+import com.mobile.micosecha.util.VarietyENUM
 
 
 class ChatFragment : Fragment() {
@@ -106,7 +109,7 @@ class ChatFragment : Fragment() {
             adapter.insertMessage(chatMessage)
             binding.rvMessages.scrollToPosition(adapter.itemCount - 1)
 
-            botResponse(view, message)
+            botResponse(view, message.uppercase())
         }
     }
 
@@ -117,37 +120,50 @@ class ChatFragment : Fragment() {
 
             withContext(Dispatchers.Main) {
                 //Gets the response
-                val botResponse: ChatMessageSerializable = BotResponse().basicResponses(message)
-                val response: ChatMessage = botResponse.asMessage()
+                if (!enumContains<VarietyENUM>(message)) {
 
-                //Adds it to our local list
-                messagesList.add(response)
+                    val botResponse = BotResponse()
+                    val botMessage: ChatMessageSerializable = botResponse.basicResponses(message)
+                    val response: ChatMessage = botMessage.asMessage()
 
-                //Inserts our message into the adapter
-                adapter.insertMessage(response)
+                    //Adds it to our local list
+                    messagesList.add(response)
 
-                //Scrolls us to the position of the latest message
-                binding.rvMessages.scrollToPosition(adapter.itemCount - 1)
+                    //Inserts our message into the adapter
+                    adapter.insertMessage(response)
 
-                //Starts Google
-                when (response.message) {
-                    OPEN_SEARCH -> {
-                        val site = Intent(Intent.ACTION_VIEW)
-                        val searchTerm: String = message.substringAfterLast("google")
-                        site.data = Uri.parse("https://www.google.com/search?&q=$searchTerm")
-                        startActivity(site)
+                    //Scrolls us to the position of the latest message
+                    binding.rvMessages.scrollToPosition(adapter.itemCount - 1)
+
+                    //Starts Google
+                    when (response.message) {
+                        OPEN_SEARCH -> {
+                            val site = Intent(Intent.ACTION_VIEW)
+                            val searchTerm: String = message.substringAfterLast("google")
+                            site.data = Uri.parse("https://www.google.com/search?&q=$searchTerm")
+                            startActivity(site)
+                        }
+                        OPEN_GRAPH -> {
+                            val bundle = bundleOf("variety" to message)
+                            view.findNavController()
+                                .navigate(R.id.action_chatFragment_to_nav_bright, bundle)
+                        }
+                        OPEN_INSTA -> {
+                            val site = Intent(Intent.ACTION_VIEW)
+                            site.data = Uri.parse("https://www.instagram.com/")
+                            startActivity(site)
+                        }
                     }
-                    OPEN_GRAPH -> {
-                        view.findNavController().navigate(R.id.action_chatFragment_to_nav_bright)
-                    }
-                    OPEN_INSTA -> {
-                        val site = Intent(Intent.ACTION_VIEW)
-                        site.data = Uri.parse("https://www.instagram.com/")
-                        startActivity(site)
-                    }
+                } else {
+                    val bundle = bundleOf("variety" to message)
+                    view.findNavController().navigate(R.id.action_chatFragment_to_nav_bright, bundle)
                 }
             }
         }
+    }
+
+    private inline fun <reified T : Enum<T>> enumContains(name: String): Boolean {
+        return enumValues<T>().any { it.name == name }
     }
 
     private fun customBotMessage(message: String) {

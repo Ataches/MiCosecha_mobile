@@ -7,5 +7,7 @@ data class VariablesData (
     var rhum: Float,
     var sbright: Float,
     var prec: Float,
+    var predictedLineSet: LinkedHashMap<String, Float>,
+    var yield_data: ArrayList<String>,
     var prod: Float
 )

@@ -8,10 +8,4 @@ object Constants {
     const val OPEN_SEARCH : String = "Abriendo google..."
     const val OPEN_GOOGLE : String = "Buscando..."
     const val OPEN_INSTA : String = "Abriendo instagram..."
-    const val OPEN_WHATSAPP : String = "Abriendo whatsapp..."
-    const val OPEN_YOUTUBE : String = "Abriendo Youtube..."
-    const val OPEN_SPOTIFY : String = "Abriendo Spotify..."
-    const val TIME: String = "Time"
-    const val DATE: String = "Date"
-    const val WEATHER: String = "Weather"
 }

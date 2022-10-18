@@ -16,9 +16,9 @@ class BotResponse {
         return@withContext repository.getBotResponse(filterString(chatMessage))
     }
 
-    private fun filterString(message: String): String {
+    fun filterString(message: String): String {
         return message.replace("?", "").replace(",", "")
-            .replace(".", "").replace("!", "")
+            .replace(".", "").replace("!", "").replace(" ", "")
     }
 
 }

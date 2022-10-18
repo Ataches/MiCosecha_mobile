@@ -38,23 +38,31 @@
                 app:chart_lineColor="#abc9ff"
                 app:chart_lineThickness="5dp"
                 app:chart_smoothLine="false"
-                app:layout_constraintBottom_toTopOf="@+id/minimalTemperatureTextView"
+                app:layout_constraintBottom_toTopOf="@+id/variablesDescription"
                 app:layout_constraintTop_toBottomOf="@+id/seedTextView" />
+
+            <TextView
+                android:id="@+id/variablesDescription"
+                style="@style/viewParent.headerText"
+                android:layout_marginTop="20dp"
+                android:text="Promedio de variables relacionadas:"
+                app:layout_constraintBottom_toTopOf="@+id/minimalTemperatureTextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lineChartFirst" />
 
             <TextView
                 android:id="@+id/minimalTemperatureTextView"
                 style="@style/viewParent.headerText"
                 android:layout_marginTop="20dp"
-                android:text="Temperatura mínima: 22.97 °c"
+                android:text="Temperatura mínima: °c"
                 app:layout_constraintBottom_toTopOf="@+id/maximumTemperatureTextView"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lineChartFirst" />
+                app:layout_constraintTop_toBottomOf="@+id/variablesDescription" />
 
             <TextView
                 android:id="@+id/maximumTemperatureTextView"
                 style="@style/viewParent.headerText"
-                android:layout_marginTop="20dp"
-                android:text="Temperatura máxima: 33.14 °c"
+                android:text="Temperatura máxima: °c"
                 app:layout_constraintBottom_toTopOf="@+id/relativeHumidityTextView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/minimalTemperatureTextView" />
@@ -62,8 +70,7 @@
             <TextView
                 android:id="@+id/relativeHumidityTextView"
                 style="@style/viewParent.headerText"
-                android:layout_marginTop="20dp"
-                android:text="Humedad relativa: 75.15 %"
+                android:text="Humedad relativa: %"
                 app:layout_constraintBottom_toTopOf="@+id/sunBrightTextView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/maximumTemperatureTextView" />
@@ -71,8 +78,7 @@
             <TextView
                 android:id="@+id/sunBrightTextView"
                 style="@style/viewParent.headerText"
-                android:layout_marginTop="20dp"
-                android:text="Brillo del sol: 5.27 w.m-2"
+                android:text="Brillo del sol: w.m-2"
                 app:layout_constraintBottom_toTopOf="@+id/precipitationTextView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/relativeHumidityTextView" />
@@ -80,21 +86,35 @@
             <TextView
                 android:id="@+id/precipitationTextView"
                 style="@style/viewParent.headerText"
-                android:layout_marginTop="20dp"
-                android:text="Precipitación: 4.38 mm"
-                app:layout_constraintBottom_toTopOf="@+id/productionTextView"
+                android:text="Precipitación: mm"
+                app:layout_constraintBottom_toTopOf="@+id/yieldTextView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/sunBrightTextView" />
 
             <TextView
-                android:id="@+id/productionTextView"
+                android:id="@+id/yieldTextView"
                 style="@style/viewParent.headerText"
                 android:layout_marginTop="20dp"
-                android:text="Producción: 6089 Ha "
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="Producción: Ha "
+                app:layout_constraintBottom_toTopOf="@+id/yieldPredictionTextView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/precipitationTextView" />
 
+            <TextView
+                android:id="@+id/yieldPredictionTextView"
+                style="@style/viewParent.headerText"
+                android:layout_marginTop="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/yieldSowingEstimation"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/yieldTextView" />
+
+            <TextView
+                android:id="@+id/yieldSowingEstimation"
+                style="@style/viewParent.headerText"
+                android:layout_marginTop="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/yieldPredictionTextView" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </RelativeLayout>
