@@ -81,7 +81,7 @@ class VarietyResumeFragment : Fragment() {
                     ("Producción: "+graphResponse.prod + " Ha")
                     .also { "Producción: NaN Ha" }
                 binding.yieldSowingEstimation.text =
-                    ("Se estima que la mejor fecha para la siembra se da en el "+graphResponse.yield_data[0] + " semestre del año ya que tiene el mayor promedio de producción con "+graphResponse.yield_data[1]+" Ha")
+                    ("Se estima que la mejor fecha para la siembra se da en el "+graphResponse.yield_data[0] + " bisemestre del año ya que tiene el mayor promedio de producción con "+graphResponse.yield_data[1]+" Ha")
                     .also { "" }
             }
         }
